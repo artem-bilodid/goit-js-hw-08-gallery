@@ -105,20 +105,8 @@ const addModalEventListeners = () => {
   window.addEventListener('keydown', onLeftButtonPressed);
 };
 
-const onGalleryImageClick = event => {
-  if (!event.target.classList.contains('gallery__image')) {
-    return;
-  }
-
-  refs.lightbox.classList.add('is-open');
-  addModalEventListeners();
-
-  refs.lightboxImage.src = event.target.dataset.original;
-  refs.lightboxImage.alt = event.target.alt;
-};
-
 const onGalleryLinkClick = event => {
-  if (!event.target.classList.contains('gallery__link')) {
+  if (event.target === event.currentTarget) {
     return;
   }
 
@@ -196,7 +184,6 @@ const onLeftButtonPressed = event => {
   }
 };
 
-refs.gallery.addEventListener('click', onGalleryImageClick);
 refs.gallery.addEventListener('click', onGalleryLinkClick);
 
 refs.lightboxButton.addEventListener('click', onLightboxCloseButtonClick);
