@@ -131,29 +131,33 @@ const onGalleryLinkClick = event => {
   addModalEventListeners();
 };
 
-const closeModalAndRemoveModalEventListeners = () => {
+const closeModal = () => {
   refs.lightbox.classList.remove('is-open');
+
+  refs.lightboxImage.src = '';
+  refs.lightboxImage.alt = '';
+
   window.removeEventListener('keydown', onEscKeyPressed);
   window.removeEventListener('keydown', onRightButtonPressed);
   window.removeEventListener('keydown', onLeftButtonPressed);
 };
 
 const onLightboxCloseButtonClick = event => {
-  closeModalAndRemoveModalEventListeners();
+  closeModal();
 };
 
 const onLightboxOverlayClick = event => {
   if (event.target !== event.currentTarget) {
     return;
   }
-  closeModalAndRemoveModalEventListeners();
+  closeModal();
 };
 
 const onEscKeyPressed = event => {
   if (event.code !== 'Escape') {
     return;
   }
-  closeModalAndRemoveModalEventListeners();
+  closeModal();
 };
 
 const onRightButtonPressed = event => {
