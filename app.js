@@ -109,7 +109,7 @@ const onGalleryImageClick = event => {
   if (!event.target.classList.contains('gallery__image')) {
     return;
   }
-
+  event.preventDefault();
   refs.lightbox.classList.add('is-open');
   addModalEventListeners();
 
@@ -121,7 +121,7 @@ const onGalleryLinkClick = event => {
   if (!event.target.classList.contains('gallery__link')) {
     return;
   }
-
+  event.preventDefault();
   refs.lightbox.classList.add('is-open');
   const childImage = event.target.querySelector('.gallery__image');
 
